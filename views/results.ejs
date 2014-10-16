@@ -13,7 +13,15 @@
       <% if (film.Type === "movie") { %>
 
       <!-- Show the title and the imdbID -->
-      <li><%=film.Title%> - <%=film.imdbID%></li>
+      <li><%=film.Title%> - <%=film.imdbID%>
+      <br>
+        <a href="/results/<%=film.imdbID%>"> Learn More...</a>
+        <form action="/results/<%=film.imdbID%>" method="POST">
+          <input type="hidden" value="<%=film.imdbID%>" name="film[Title]">
+          <input type="submit" value="Add to Watchlist">
+        </form>
+      </li>
+      <br>
 
       <!-- Close the `if` -->
       <% } %>
